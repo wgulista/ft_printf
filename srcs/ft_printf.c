@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/28 15:40:42 by wgulista          #+#    #+#             */
+/*   Updated: 2016/04/28 15:40:44 by wgulista         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-void	found_function(t_count *cp, const char *str, va_list *args)
+void			found_function(t_count *cp, const char *str, va_list *args)
 {
-	int	tmp;
+	int			tmp;
 
-	while (p[cp->func] != 0 && (cp->value = p[cp->func](str, &(cp->i), args)) == -1)
+	while (p[cp->func] != 0 &&
+		(cp->value = p[cp->func](str, &(cp->i), args)) == -1)
 		cp->func++;
 	tmp = update_int(str, &(cp->i), args, cp->octet);
 	if (p[cp->func] == 0 && tmp == -1)
